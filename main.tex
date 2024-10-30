@@ -1,0 +1,217 @@
+\documentclass[12pt, a4paper]{extarticle}
+\usepackage[utf8]{inputenc}
+\usepackage[T4]{fontenc}
+\usepackage[vietnamese]{babel}
+\usepackage{amsmath,amsfonts,amssymb,graphicx,geometry,enumerate,enumitem,tikz,tkz-tab,multicol,fancybox,hyperref,lscape,pdflscape,adjustbox,float}
+\usepackage{multirow}
+\usepackage{mathtools}
+\usepackage{tabularray}
+\usepackage{tabularx}
+\usepackage{enumerate}% http://ctan.org/pkg/enumerate
+\DeclareMathOperator*{\modd}{\scriptstyle\%}
+
+\geometry{  
+    a4paper,
+    top=2cm,
+    left=1.5cm,
+    right=1.5cm,
+}
+
+\usepackage[document]{ragged2e}
+\usepackage{fontawesome}
+\usepackage{pbox}
+\usepackage{marvosym}
+\usepackage{xcolor}
+\usepackage{alltt}
+\usepackage{array}
+
+\usepackage{listings}
+\definecolor{ao(english)}{rgb}{0.0,0.5, 0.0}
+\definecolor{airforceblue}{rgb}{0.36,0.54, 0.66}
+\lstdefinestyle{cpp}{
+    language=C++,
+    basicstyle=\ttfamily,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{ao(english)},
+    stringstyle=\color{red},
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4,
+    moredelim=[is][\color{airforceblue}\bfseries]{@}{@}
+}
+
+\lstdefinestyle{mypythonstyle}{
+    %backgroundcolor=\color{white},   % choose the background color
+    basicstyle=\ttfamily\footnotesize,% the size of the fonts that are used for the code
+    breakatwhitespace=false,         % sets if automatic breaks should only happen at whitespace
+    breaklines=true,                 % sets automatic line breaking
+    captionpos=b,                    % sets the caption-position to bottom
+    commentstyle=\color{ao(english)},% comment style
+    deletekeywords={...},            % if you want to delete keywords from the given language
+    escapeinside={\%*}{*)},          % if you want to add LaTeX within your code
+    extendedchars=true,              % lets you use non-ASCII characters
+    %frame=single,                    % adds a frame around the code
+    keepspaces=true,                 % keeps spaces in text, useful for keeping indentation of code (possibly needs columns=flexible)
+    keywordstyle=\color{blue},       % keyword style
+    language=Python,                 % the language of the code
+    morekeywords={*,...},            % if you want to add more keywords to the set
+    %numbers=left,                    % where to put the line-numbers; possible values are (none, left, right)
+    %numbersep=5pt,                   % how far the line-numbers are from the code
+    %numberstyle=\tiny\color{mygray}, % the style that is used for the line-numbers
+    rulecolor=\color{black},         % if not set, the frame-color may change on line-breaks within not-black text (e.g. comments (green here))
+    showspaces=false,                % show spaces everywhere adding particular underscores; it overrides 'showstringspaces'
+    showstringspaces=false,          % underline spaces within strings only
+    showtabs=false,                  % show tabs within strings adding particular underscores
+    stepnumber=2,                    % the step between two line-numbers. If it's 1, each line will be numbered
+    stringstyle=\color{red},         % string literal style
+    tabsize=2,                       % sets default tabsize to 2 spaces
+    title=\lstname                   % show the filename of files included with \lstinputlisting; also try caption instead of title
+}
+
+\lstset{style=cpp}
+
+\usepackage{titlesec}
+
+% Define new section format for "Chương x" numbering
+\titleformat{\section}{\Large\bfseries}{Chương \thesection}{1em}{}
+\titleformat{\subsection}{\large\bfseries}{\arabic{subsection}}{1em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesection.\arabic{subsubsection}}{1em}{}
+
+% Set the numbering styles
+\renewcommand{\thesection}{\arabic{section}}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+\renewcommand{\thesubsubsection}{\thesection.\arabic{subsubsection}}
+
+% Reset subsection counter at each new section
+\makeatletter
+\@addtoreset{subsection}{section}
+\@addtoreset{subsubsection}{subsection}
+\makeatother
+
+\usepackage{mdframed}
+
+\newmdenv[linecolor=black,skipabove=\topsep,skipbelow=\topsep,
+leftmargin=-5pt,rightmargin=-5pt,
+innerleftmargin=5pt,innerrightmargin=5pt]{mybox} % frame box
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{}
+\rhead{}
+\renewcommand{\headrulewidth}{0pt}
+\lfoot{\texttt{VNUHCM-US-FIT}}
+\rfoot{\small\texttt{2212102-22127134-22127318-21127402}}
+\renewcommand{\footrulewidth}{1pt}
+
+\renewcommand{\contentsname}{Contents}
+
+\begin{document}
+
+
+    
+
+
+    \begin{titlepage}
+        \begin{center}
+            {
+                \Large
+                \textbf{Vietnam National University Ho Chi Minh City}
+            }
+
+            \vspace{0.5cm}
+            {
+                \Large
+                \textbf{University of Science}
+            }
+
+            \vspace{0.5cm}
+            {
+                \large
+                \textit{Faculty of Information Technology}
+            }
+
+            \vspace{2cm}
+            \includegraphics[width=0.4\textwidth]{hcmus.jpg}
+
+            \vspace{2cm}
+            {
+                \huge
+                \textbf{Digital Image and Video Processing:} \vspace{0.3cm} \\
+                \textbf{BACKGROUND REMOVAL}
+            }
+
+            \vspace{3cm}
+            {
+
+                \begin{tabular}{l l}
+                    Course & {\large\textsc{CSC16005 - Digital Image and Video Processing}}\vspace{0.2cm}\\
+                    Group & {\large DaBalance}\vspace{0.2cm}\\
+                    Lecturers & \textbf{Lý Quốc Ngọc}\\
+                     & \textbf{Nguyễn Mạnh Hùng}\\
+                     & \textbf{Phạm Thanh Tùng}\vspace{0.2cm}\\
+                    Participants 
+                    & \textbf{22127102} $-$ \textbf{Vũ Gia Hân}\\
+                    & \textbf{22127134} $-$ \textbf{Ngũ Kiệt Hùng} \\
+                    & \textbf{22127318} $-$ \textbf{Trang Minh Nhựt} \\
+                    & \textbf{22127402} $-$ \textbf{Bế Lã Anh Thư} 
+                \end{tabular}
+            }
+            \vfill
+            \vspace{0.5cm}
+            {
+                \textit{HCMC, 2023}
+            }
+        \end{center}
+    \end{titlepage}
+    \pagebreak
+
+
+
+    \begin{tabular}{p{0.25\linewidth} p{0.75\linewidth}}
+        & \emph{For a full experience, use a PDF reader that visually indicate the words associated with hyperlink.}\\
+    \end{tabular}
+    \tableofcontents
+    \pagebreak
+
+    \section{Giới thiệu}
+        \subsection{Ý nghĩa về khoa học của chủ đề}
+        \subsection{Ý nghĩa về ứng dụng của chủ đề}
+        \subsection{Phát biểu bài toán}
+        \subsection{Đóng góp của báo cáo}
+
+    \section{Các công trình nghiên cứu liên quan}
+        \subsection{Chọn lọc các công trình nghiên cứu liên quan đến chủ đề}
+        \subsection{Trình bày quá trình phát triển của các giải pháp liên quan đến chủ đề}
+        \subsection{Lập bảng so sánh các giải pháp dựa trên một số tiêu chí tự chọn}
+
+    \section{Đánh giá thành viên}
+        \begin{center}
+            \begin{tabular}{|c|l|c|l|} \hline
+    
+                \textbf{Member} &	\textbf{Assignments} & \textbf{DoC} & \textbf{Comments} \\      \hline
+    
+                 & &	100\% & None\\   \hline 
+                 & &	100\% & None\\   \hline 
+                 & &  100\% & None\\ \hline
+                 & &  100\% & None\\ \hline
+            \end{tabular}
+        \end{center}          
+
+
+    \section{Tài liệu tham khảo}
+    \begin{enumerate} [label = $-$]
+        \item Raylib:
+            \begin{enumerate} [label = {[\arabic*]}]
+                \item \href{https://electronstudio.github.io/raylib-python-cffi/pyray.html}{Raylib Python}.
+                \item \href{https://github.com/raysan5/raylib/blob/master/examples/textures/textures_fog_of_war.c}{Fog of war}.
+                \item \href{https://www.raylib.com/cheatsheet/cheatsheet.html}{Raylib - CheatSheet}.
+            \end{enumerate}
+            
+        \item Hide and Seek Algorithms: 
+            \begin{enumerate} [label = {[\arabic*]}]
+                \item \href{https://en.wikipedia.org/wiki/Bresenham%27s_line_algorithm?fbclid=IwAR3xf8SQy0Ita7FKyIvI_geSLWZgar7R-uT3c2utJ1trZqYf9fKLtEwPuec#Notes}{Bresenham's line algorithm}.
+                
+            \end{enumerate}
+    \end{enumerate}
+\end{document}
